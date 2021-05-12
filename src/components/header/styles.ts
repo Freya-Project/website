@@ -1,8 +1,4 @@
-import styled, { css } from 'styled-components';
-
-export const Container = styled.div`
-    width: 73vw;
-`;
+import styled, { css } from "styled-components";
 
 export const HeaderDiv = styled.header`
     display: grid;
@@ -15,6 +11,7 @@ export const HeaderDiv = styled.header`
 
 export const Avatar = styled.img`
     width: 42px;
+    height: 42px;
     border-radius: 50%;
     border: 2px solid white;
 `;
@@ -49,12 +46,12 @@ export const DiscordButton = styled.a`
     }
 
     &::after {
-        content: ' ';
+        content: " ";
         display: block;
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: #7289DA;
+        background-color: #7289da;
         top: 0;
         left: 0;
         transform: skewX(-25deg);
@@ -68,7 +65,7 @@ export const DiscordButton = styled.a`
 
 export const UserButton = styled.button`
     font-size: 20px;
-    font-family: 'Poppins';
-    background-color: #E71D36;
+    font-family: "Poppins";
+    background-color: #e71d36;
     padding: 4px 10px;
 `;

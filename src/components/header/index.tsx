@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
+import { Container } from '../../styles';
 import {
-    Container,
-    HeaderDiv,
     Avatar,
     AvatarTitle,
-    DiscordButton,
+    DiscordButton, HeaderDiv
 } from './styles';
 
 const Header = () => {
