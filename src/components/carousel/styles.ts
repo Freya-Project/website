@@ -115,11 +115,22 @@ export const CarouselBg = styled.div`
     width: 100%;
     height: 440px;
     padding: 60px 60px;
-    background-image: url("/img/carousel_bg.png");
     object-fit: scale-down;
     background-repeat: no-repeat;
     background-position-x: 0%;
     grid-area: carousel;
+    overflow: hidden;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        /* filter: blur(20px); */
+        background-image: url("/img/carousel_bg.png");
+    }
 `;
 
 // Controls //
