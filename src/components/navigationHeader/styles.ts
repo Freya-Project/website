@@ -121,6 +121,9 @@ export const NavButton = styled.nav<NavButton>`
         left: 0;
         width: 100%;
         height: 100%;
+        background-color: white;
+        opacity: 0;
+        transition: opacity 0.5s ease;
     }
 
     ${(props: NavButton) => {
@@ -142,11 +145,13 @@ export const NavButton = styled.nav<NavButton>`
                 return css`
                     color: white;
                     background-color: #6e12b6;
+                    &::before {
+                    }
                     &:hover {
                         &::before {
+                            background-color: #6e12b6;
                             opacity: 0;
                             z-index: 2;
-                            background-color: #6e12b6;
                             animation: 0.8s linear ActiveButtonAnim;
                         }
                     }
@@ -165,9 +170,10 @@ export const NavButton = styled.nav<NavButton>`
                         }
 
                         &::before {
+                            transition: opacity 0s;
+                            opacity: 1;
                             top: initial;
                             bottom: 0;
-                            background-color: white;
                             animation: 0.5s linear ButtonBgAnim;
                         }
                     }
