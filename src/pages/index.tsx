@@ -1,14 +1,17 @@
 import Header from "../components/header";
-import NavigationHeader from "../components/navigationHeader";
+import Head from "next/head";
 import { MainContainer, Separator } from "../styles";
 
 function Home(){
-    return (<MainContainer>
-        <Header/>
-        <Separator height={48}/>
-        <NavigationHeader/>
-        <Separator height={124}/>
-    </MainContainer>);
+    return (<>
+        <Head>
+            <title>FreyaBot: Home</title>
+        </Head>
+        <MainContainer>
+            <Header/>
+            <Separator height={163}/>
+        </MainContainer>
+    </>);
 }
 
 export default Home;

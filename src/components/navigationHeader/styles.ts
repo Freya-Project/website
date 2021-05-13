@@ -21,6 +21,7 @@ export const NavBar = styled.nav`
     grid-area: navbar;
     width: 273px;
     height: 100%;
+    background-color: #141211;
 `;
 
 export const NavButtonIcon = styled.i<{ src: string }>`
@@ -47,7 +48,13 @@ export const NavButton = styled.nav<NavButton>`
 
     @keyframes ButtonBgAnim {
         0% {
-            height: 0px;
+            height: 3px;
+            width: 0%;
+        }
+
+        50% {
+            height: 3px;
+            width: 100%;
         }
 
         70% {
@@ -127,7 +134,7 @@ export const NavButton = styled.nav<NavButton>`
                             opacity: 0;
                             z-index: 2;
                             background-color: white;
-                            animation: 0.6s linear ActiveButtonAnim;
+                            animation: 0.8s linear ActiveButtonAnim;
                         }
                     }
                 `;
@@ -140,7 +147,7 @@ export const NavButton = styled.nav<NavButton>`
                             opacity: 0;
                             z-index: 2;
                             background-color: #6e12b6;
-                            animation: 0.6s linear ActiveButtonAnim;
+                            animation: 0.8s linear ActiveButtonAnim;
                         }
                     }
                 `;
@@ -150,34 +157,21 @@ export const NavButton = styled.nav<NavButton>`
                     color: white;
                     &:hover {
                         color: black;
-                        animation: 0.3s linear ButtonAnim;
+                        animation: 0.5s linear ButtonAnim;
 
                         i {
                             filter: brightness(0);
-                            animation: 0.3s linear ButtonIconAnim;
+                            animation: 0.5s linear ButtonIconAnim;
                         }
 
                         &::before {
                             top: initial;
                             bottom: 0;
                             background-color: white;
-                            animation: 0.3s linear ButtonBgAnim;
+                            animation: 0.5s linear ButtonBgAnim;
                         }
                     }
                 `;
         }
     }}
-`;
-
-// Carousel //
-
-export const CarouselBg = styled.div`
-    display: block;
-    width: 100%;
-    height: 440px;
-    background-image: url("/img/carousel_bg.png");
-    object-fit: scale-down;
-    background-repeat: no-repeat;
-    background-position-x: 0%;
-    grid-area: carousel;
 `;

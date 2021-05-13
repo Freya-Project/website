@@ -69,3 +69,7 @@ export const UserButton = styled.button`
     background-color: #e71d36;
     padding: 4px 10px;
 `;
+
+export const BackgroundDiv = styled.div`
+    background-color: #191715;
+`;

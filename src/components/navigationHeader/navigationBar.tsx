@@ -22,7 +22,7 @@ const NavigationBar = () => {
         </NavButton>
         <NavButton type="nobg">
             <NavButtonIcon src="/img/nav_icons/servers.svg"/>
-            <p>Servers</p>
+            <p>Partners</p>
         </NavButton>
     </NavBar>;
 }
