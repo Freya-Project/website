@@ -84,10 +84,17 @@ export const CarouselSection = styled.div<{ enter?: boolean }>`
     padding: 15px;
 `;
 
-export const SlideContainer = styled.div<{ direction: "left" | "right" }>`
+export const SlideContainer = styled.div<{
+    direction: "left" | "right" | "nodirection";
+}>`
     ${(props: any) => {
-        const [pos1, pos2] =
-            props.direction === "left" ? ["-100%", "0%"] : ["0%", "-100%"];
+        let pos1, pos2;
+        if (props.direction === "nodirection") {
+            [pos1, pos2] = ["-100%", "-100%"];
+        } else {
+            [pos1, pos2] =
+                props.direction === "left" ? ["-100%", "0%"] : ["0%", "-100%"];
+        }
         return css`
             --pos1: ${pos1};
             --pos2: ${pos2};

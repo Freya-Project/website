@@ -41,10 +41,11 @@ function createItem(item: CarouselItem, current?: boolean) {
 
 const Carousel = (props: Carousel) => {
     const { items } = props;
-    const [selectedItem, setSelectedItem] = useState(items.length-1);
-    const [previousItem, setPreviousItem] = useState(-1);
+    const [selectedItem, setSelectedItem] = useState(0);
+    const [previousItem, setPreviousItem] = useState(items.length-1);
     const [lastTimeout, setLastTimeout] = useState({} as NodeJS.Timeout);
     const [tick, setTick] = useState(false);
+    const [started, setStarted] = useState(false);
 
     function resetTimeout() {
         clearTimeout(lastTimeout);
@@ -73,12 +74,12 @@ const Carousel = (props: Carousel) => {
         return (
             <SlideContainer 
                 key={`${selectedItem}${previousItem}`}
-                direction={direction}>
+                direction={started ? direction : "nodirection"}>
                     {orderedItems}
             </SlideContainer>
         );
 
-    }, [items, selectedItem, previousItem]);
+    }, [items, selectedItem, previousItem, tick]);
 
     const controlIndicatorList = useMemo(() => {
         return new Array(items.length).fill(undefined).map(
@@ -96,8 +97,13 @@ const Carousel = (props: Carousel) => {
     }, [items, selectedItem]);
 
     useEffect(() => {
-        const nextItem = selectedItem < items.length - 1 ? selectedItem + 1 : 0;
-        setItem(nextItem);
+        if(!started) {
+            setStarted(true);
+            resetTimeout();
+        }else{
+            const nextItem = selectedItem < items.length - 1 ? selectedItem + 1 : 0;
+            setItem(nextItem);
+        }
     }, [tick]);
 
     useEffect(() => {
