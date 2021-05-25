@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
 `;
 
 export const Container = styled.div<{ background?: string }>`
-    width: 73vw;
+    width: 83vw;
     padding: 0 20px;
     ${(props: any) =>
         props.background &&

@@ -2,26 +2,12 @@ import styled, { css } from "styled-components";
 
 // Carousel //
 
-const FadeInAnimation = css`
-    @keyframes FadeInAnim {
-        0% {
-            filter: opacity(0);
-        }
-
-        100% {
-            filter: opacity(1);
-        }
-    }
-    animation: 0.6s linear FadeInAnim;
-`;
-
 export const CarouselTitle = styled.h3`
     font-size: 32px;
     font-weight: 300;
     text-align: center;
     text-decoration: underline;
     margin-bottom: 8px;
-    ${FadeInAnimation}
 `;
 
 export const CarouselDescription = styled.p`
@@ -30,7 +16,6 @@ export const CarouselDescription = styled.p`
     /* word-break: break-all; */
     font-weight: 300;
     word-wrap: break-word;
-    ${FadeInAnimation}
 `;
 
 export const ReadMoreButton = styled.button`
@@ -67,8 +52,6 @@ export const ReadMoreButton = styled.button`
         color: black;
     }
 
-    ${FadeInAnimation}
-
     &::after {
         content: "";
         z-index: 1;
@@ -91,17 +74,57 @@ export const ReadMoreButton = styled.button`
     }
 `;
 
-export const CarouselSection = styled.div`
+export const CarouselSection = styled.div<{ enter?: boolean }>`
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 15px;
+`;
+
+export const SlideContainer = styled.div<{ direction: "left" | "right" }>`
+    ${(props: any) => {
+        const [pos1, pos2] =
+            props.direction === "left" ? ["-100%", "0%"] : ["0%", "-100%"];
+        return css`
+            --pos1: ${pos1};
+            --pos2: ${pos2};
+        `;
+    }}
+
+    left: var(--pos2);
+    @keyframes SlideAnim {
+        0% {
+            left: var(--pos1);
+        }
+        100% {
+            left: var(--pos2);
+        }
+    }
+    animation: 0.8s linear SlideAnim;
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    padding: 0;
+    margin: 0;
+`;
+
+export const CarouselContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    padding: 15px;
+    /* padding: 15px; */
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     /* height: 100%; */
     color: white;
     background-color: #0f0f0f7f;
+    overflow: hidden;
 
     * {
         font-family: "Poppins";

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import Image from "next/image";
 
 export const HeaderDiv = styled.header`
     display: grid;
@@ -9,14 +10,15 @@ export const HeaderDiv = styled.header`
     /* background-color: #99ffbb; */
 `;
 
-export const Avatar = styled.img`
-    width: 42px;
-    height: 42px;
+export const FreyaAvatar = styled(Image)`
+    /* width: 42px;
+    height: 42px; */
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid white !important;
+    image-rendering: optimizeQuality;
 `;
 
-export const AvatarTitle = styled.h1`
+export const FreyaAvatarTitle = styled.h1`
     font-size: 28px;
     font-weight: 300;
     color: white;
@@ -54,11 +56,10 @@ export const DiscordButton = styled.a`
         background-color: #7289da;
         top: 0;
         left: 0;
-        transform: skewX(-25deg);
+        transform: skewX(-16.42deg);
     }
 
     img {
-        height: 25px;
         z-index: 1;
     }
 `;
