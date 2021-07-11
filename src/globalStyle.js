@@ -1,3 +1,5 @@
+import "@fontsource/poppins";
+import "@fontsource/source-sans-pro";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -10,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: "Source Sans Pro";
     }
 `;
 
